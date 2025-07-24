@@ -43,15 +43,26 @@ jobs:
         run: |
           cd hello-world-terraform/infra 
           terraform plan -var-file="terraform.tfvars"
-
       - name: Terraform Apply
         if: github.event.inputs.command == 'apply'
         run: |
           cd hello-world-terraform/infra 
-          terraform apply -auto-approve -var-file="terraform.tfvars"
+          terraform apply -input=false -auto-approve -var-file="terraform.tfvars"
 
       - name: Terraform Destroy
         if: github.event.inputs.command == 'destroy'
         run: |
           cd hello-world-terraform/infra
-          terraform destroy -auto-approve -var-file="terraform.tfvars"
+          terraform destroy -input=false -auto-approve -var-file="terraform.tfvars"
+
+      # - name: Terraform Apply
+      #   if: github.event.inputs.command == 'apply'
+      #   run: |
+      #     cd hello-world-terraform/infra
+      #     terraform apply -auto-approve -var-file="terraform.tfvars"
+
+      # - name: Terraform Destroy
+      #   if: github.event.inputs.command == 'destroy'
+      #   run: |
+      #     cd hello-world-terraform/infra
+      #     terraform destroy -auto-approve -var-file="terraform.tfvars"
