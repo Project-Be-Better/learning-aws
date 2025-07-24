@@ -1,0 +1,44 @@
+name: Terraform Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Terraform command to run"
+        required: true
+        default: "plan"
+        type: choice
+        options:
+          - init
+          - plan
+          - apply
+          - destroy
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.7.4
+
+      - name: Terraform Init
+        if: github.event.inputs.command == 'init'
+        run: terraform init
+
+      - name: Terraform Plan
+        if: github.event.inputs.command == 'plan'
+        run: terraform plan -var-file="terraform.tfvars"
+
+      - name: Terraform Apply
+        if: github.event.inputs.command == 'apply'
+        run: terraform apply -auto-approve -var-file="terraform.tfvars"
+
+      - name: Terraform Destroy
+        if: github.event.inputs.command == 'destroy'
+        run: terraform destroy -auto-approve -var-file="terraform.tfvars"

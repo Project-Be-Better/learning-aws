@@ -7,8 +7,8 @@ provider "aws" {
 # Create an EC2 instance (virtual machine)
 # This is the main compute resource that will run your applications
 resource "aws_instance" "hello_ec2" {
-  ami           = "ami-0df7a207adb9748c7" # Amazon Machine Image - Ubuntu 22.04 LTS in Singapore region
-  instance_type = "t2.micro"              # Instance size - t2.micro is eligible for AWS free tier
+  ami           = var.ami_id # Amazon Machine Image - Ubuntu 22.04 LTS in Singapore region
+  instance_type = var.instance_type             # Instance size - t2.micro is eligible for AWS free tier
   key_name      = var.key_name            # SSH key pair name for secure access (defined in variables.tf)
 
   # Attach the security group to control network access

@@ -13,3 +13,9 @@ variable "key_name" {
   type = string
   description = "aws-hello-ec2"
 }
+
+variable "instance_type" {
+  type = string
+  default = "t2.micro"
+  description = "EC2 instance type"
+}
