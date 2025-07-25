@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  gateway:
+    build:
+      context: ./services/gateway
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./services/gateway:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+
+  user-service:
+    build:
+      context: ./services/user-service
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./services/user-service:/app
+      - /app/node_modules
+    ports:
+      - "4001:4001"
+    environment:
+      - NODE_ENV=development
+
+  notes-service:
+    build:
+      context: ./services/notes-service
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./services/notes-service:/app
+      - /app/node_modules
+    ports:
+      - "4002:4002"
+    environment:
+      - NODE_ENV=development

@@ -1,0 +1,5 @@
+# How to run the app
+
+```bash
+docker compose -f docker-compose.dev.yml up --build
+```
