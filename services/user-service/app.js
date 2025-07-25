@@ -6,6 +6,10 @@ app.get("/", (req, res) => {
   res.json({ message: "User Service Working" });
 });
 
+app.get("/health", (req, res) => {
+  res.json({ health: "OK" });
+});
+
 app.get("/users", (req, res) => {
   res.json({ users: ["Sree", "Reshu", "Kunju"], service: "user-service" });
 });

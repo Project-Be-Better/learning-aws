@@ -6,6 +6,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Notes Service Working" });
 });
 
+app.get("/health", (req, res) => {
+  res.json({ health: "OK" });
+});
+
 app.get("/notes", (req, res) => {
   res.json({ notes: ["Note A, Note B"], service: "notes-service" });
 });
