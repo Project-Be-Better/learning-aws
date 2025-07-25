@@ -1,0 +1,36 @@
+# aws_region = "us-east-1"
+# environment = "dev"
+# project_name = "learning-aws"
+# instance_type = "t3.micro"
+
+# # VPC Configuration
+# vpc_cidr = "10.0.0.0/16"
+# public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
+# private_subnet_cidrs = ["10.0.10.0/24", "10.0.20.0/24"]
+
+# # Auto Scaling Configuration
+# min_size = 1
+# max_size = 3
+# desired_capacity = 2
+
+# # Database Configuration
+# db_instance_class = "db.t3.micro"
+# allocated_storage = 20
+# database_name = "microservices"
+# database_username = "admin"
+
+# # SSL Certificate (optional)
+# # certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+# # domain_name = "api.yourdomain.com"
+
+# # Security
+# allowed_cidr_blocks = ["0.0.0.0/0"]  # Restrict this in production
+
+# # Monitoring
+# enable_logging = true
+# enable_monitoring = true
+# log_retention_days = 7
+
+# # Backup
+# backup_retention_days = 7
+# enable_deletion_protection = false  # Set to true in production
