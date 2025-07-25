@@ -1,0 +1,26 @@
+# Dockerfile.dev
+FROM node:18
+
+# Update system packages to fix vulnerabilities
+RUN apt-get update && apt-get upgrade -y && apt-get clean
+
+# Create app directory
+WORKDIR /app
+
+# Install only package.json & package-lock.json first
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Install nodemon globally for convenience
+RUN npm install -g nodemon
+
+# Copy all local files (source) to container
+COPY . .
+
+# Expose the default port (can vary per service)
+EXPOSE 3000
+
+# Start the app with hot reload
+CMD ["npm", "run", "dev"]
