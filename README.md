@@ -10,4 +10,4 @@ This contains a simplified architecture of the application with an Reverse Proxy
 
 > Note : The Authorization and Authentication has not been implemented
 
-![](.\docs\img\api-gw-v1.png)
+![](./docs/img/api-gw-v1.png)
